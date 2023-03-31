@@ -13,4 +13,4 @@ Basta abrir o arquivo index.html em qualquer navegador web e preencher os campos
 >JavaScript
 
 ## Autor
-Este projeto foi criado por [Nome do Autor].
+Este projeto com intuito de relembrar conceitos passados, dia 31/03/2023.
