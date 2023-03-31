@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Média ponderada</title>
+	<style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+		body {
+	        font-family: Arial, sans-serif;
+	        background-color: #141414;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #007bff;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #202020;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        label {
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #454545;
+            font-size: 16px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            outline: none;
+            transition: all 350ms ease-in-out;
+            background-color: #343434;
+            color: white;
+        }
+
+        
+        input[type="number"]:focus {
+            border: 2px solid #007bff;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            width: 70%;
+            color: #fff;
+            padding: 20px;
+            border: 1px solid rgba(0, 0, 0, 0);
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 250ms ease-in-out;
+        }
+
+        button[type="submit"]:hover {
+            transform: scale(103%);
+            background-color: #006fe7;
+        }
+
+        .resultado {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ccc;
+        }
+
+        @media only screen and (max-width: 768px) {
+            form {
+                width: 80vw;
+                min-width: 80vw;
+                height: 50vh;
+            }
+
+            .container {
+                height: 100vh;
+            }
+        }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Média ponderada</h1>
+		<form id="form-media">
+			<label for="nota1">Nota 1:</label>
+			<input type="number" id="nota1" name="nota1">
+			<label for="peso1">Peso 1:</label>
+			<input type="number" id="peso1" name="peso1">
+			<label for="nota2">Nota 2:</label>
+			<input type="number" id="nota2" name="nota2">
+			<label for="peso2">Peso 2:</label>
+			<input type="number" id="peso2" name="peso2">
+			<button type="submit" id="calcular-media">Calcular Média</button>
+		</form>
+		<div class="resultado" id="resultado"></div>
+	</div>
+
+    <script>
+        const form = document.querySelector("#form-media");
+        form.addEventListener("submit", function(event) {
+	        event.preventDefault();
+	        const nota1 = parseFloat(document.querySelector("#nota1").value);
+	        const peso1 = parseFloat(document.querySelector("#peso1").value);
+            const nota2 = parseFloat(document.querySelector("#nota2").value);
+            const peso2 = parseFloat(document.querySelector("#peso2").value);
+            const media = (nota1 * peso1 + nota2 * peso2) / (peso1 + peso2);
+	
+            const resultado = document.querySelector("#resultado");
+            resultado.innerHTML = `A média ponderada é ${media.toFixed(2)}`;
+        });
+    </script>
+</body>
+</html>
